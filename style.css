@@ -1,0 +1,78 @@
+.container {
+    width: 840px;
+    margin: auto;
+    padding: 2.5% 0;
+    background-color: blue;
+}
+
+.jumbotron {
+    background-color: blueviolet;
+}
+
+.main-header {
+    background-color: aqua;
+    text-align: center;
+}
+
+.lead {
+    color: #56565cee;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3.2em;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-align: center;
+    margin-bottom: 0.65em;
+    background-color: greenyellow;
+}
+
+.music {
+    background-color: grey;
+    text-align: center;
+}
+
+#artist-image {
+    background-color: palevioletred;
+}
+
+.image {
+    height: 300px;
+    width: 300px;
+}
+
+.image-body {
+    background-color: teal;
+}
+
+.image-header {
+    background-color: royalblue;
+}
+
+.image-text {
+    background-color: green;
+    float: left;
+    width: 48%;
+}
+
+.tour-dates {
+    float: right;
+    width: 48%;
+}
+
+.tour-date-item {
+    background-color: tan;
+}
+
+.links {
+    clear: both;
+    width: 75%;
+}
+
+h1 {
+    color: #56565cee;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 3.2em;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-align: center;
+    margin-bottom: 0.65em;
+}
