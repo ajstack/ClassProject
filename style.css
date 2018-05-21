@@ -2,15 +2,15 @@
     width: 840px;
     margin: auto;
     padding: 2.5% 0;
-    background-color: blue;
+    background-color: rgb(130, 130, 156);
 }
 
 .jumbotron {
-    background-color: blueviolet;
+    background-color: rgb(226, 218, 233);
 }
 
 .main-header {
-    background-color: aqua;
+    background-color: lightslategray;
     text-align: center;
 }
 
@@ -22,29 +22,47 @@
     letter-spacing: 0.08em;
     text-align: center;
     margin-bottom: 0.65em;
-    background-color: greenyellow;
+    background-color: lightslategray;
 }
 
 .music {
-    background-color: grey;
+    background-color: rgb(202, 33, 33);
+    text-align: center;
+}
+
+.itunes {
+    float: left;
+    width: 48%;
+    text-align: center;
+}
+
+.youtube {
+    float: right;
+    width: 48%;
     text-align: center;
 }
 
 #artist-image {
-    background-color: palevioletred;
+    background-color: rgb(126, 118, 121);
+    clear: both;
+}
+
+img {
+    clear: both;
 }
 
 .image {
     height: 300px;
     width: 300px;
+    clear: both;
 }
 
 .image-body {
-    background-color: teal;
+    background-color: rgb(118, 128, 128);
 }
 
 .image-header {
-    background-color: royalblue;
+    background-color: rgb(147, 150, 161);
 }
 
 .image-text {
@@ -64,15 +82,6 @@
 
 .links {
     clear: both;
-    width: 75%;
-}
-
-h1 {
-    color: #56565cee;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 3.2em;
-    font-weight: bold;
-    letter-spacing: 0.08em;
+    width: 99%;
     text-align: center;
-    margin-bottom: 0.65em;
 }
