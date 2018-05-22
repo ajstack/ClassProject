@@ -1,5 +1,11 @@
 // console.log("hi");
-var itunesInfo;
+
+// function renderButtons() {
+// var itunesInfo;
+// var artist;
+// var queryURL = "https://itunes.apple.com/search?term=" + &limit=5"
+
+
 $.ajax({
     url: "https://itunes.apple.com/search?term=Whitney&limit=5",
     method: "GET"
@@ -7,6 +13,7 @@ $.ajax({
     itunesInfo = response
    console.log(itunesInfo);
   });
+// }
 //  var itunesObject = JSON.parse(itunesInfo);
 //  console.log(itunesObject);
   
@@ -35,7 +42,9 @@ $.ajax( {
   // }
   }).then(function(response) {
     wikiData = response;
-    console.log(wikiData);
+    // console.log(wikiData);
+
+
   });
 
 
@@ -54,27 +63,68 @@ $.ajax({
     url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM",
     method: "GET"
   }).then(function(response) {
-    youTube = response;
-   console.log(youTube);h
+    youTube = response
+  //  console.log(youTube);
   });
 
 
   var apiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
   var bandName = "" //$(this).attr("data-topic"); {put this sort of thing here}
   
-  var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=1&keyword="+ bandName + "&apikey=" + apiKey;
+  var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=5&keyword="+ bandName + "&apikey=" + apiKey;
   
   $.ajax({
     type:"GET",
     url:queryURL,
     async:true,
     dataType: "json",
-    success: function(json) {
-                console.log(json);
+    success: function(ticketMasterResults) {
+                console.log(ticketMasterResults);
+                var ticketMasterEvents = ticketMasterResults._embedded.events;
+                console.log(ticketMasterEvents);
                 // Parse the response.
                 // Do other things.
+                 for (var i=0; i<ticketMasterEvents.length; i++){
+                   console.log(ticketMasterEvents[i].name);
+                   console.log(ticketMasterEvents[i].url);
+                 }
              },
     error: function(xhr, status, err) {
                 // This time, we do not end up here!
              }
   });
+
+
+  // $(document).on("click", ".tunes", displayItunesInfo);
+
+  $("#artistSearch").on("click", function(event){
+    event.preventDefault();
+    console.log("search");
+
+    var artist = $("#artist").val().trim();
+    console.log(artist);
+
+    var apiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
+    // var bandName = "" //$(this).attr("data-topic"); {put this sort of thing here}
+    //test
+    
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=1&keyword="+ artist + "&apikey=" + apiKey;
+    
+    $.ajax({
+      type:"GET",
+      url:queryURL,
+      async:true,
+      dataType: "json",
+      success: function(json) {
+                  console.log(json);
+                  // Parse the response.
+                  // Do other things.
+               },
+      error: function(xhr, status, err) {
+                  // This time, we do not end up here!
+               }
+    });
+
+     } );
+
+
