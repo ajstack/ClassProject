@@ -73,6 +73,8 @@ $.ajax({
                 console.log(json);
                 // Parse the response.
                 // Do other things.
+                var ticketMasterResults = json.data;
+                console.log(ticketMasterResults);
              },
     error: function(xhr, status, err) {
                 // This time, we do not end up here!
