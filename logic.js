@@ -11,7 +11,7 @@ $.ajax({
   method: "GET"
 }).then(function(response) {
     itunesInfo = response
-  console.log(itunesInfo);
+  //console.log(itunesInfo);
   var itunesObject = JSON.parse(itunesInfo);
   console.log(itunesObject);
   
@@ -21,6 +21,7 @@ $.ajax({
   for (var i=0; i<itunesResults.length; i++){
     console.log(itunesResults[i].artistName);
     console.log(itunesResults[i].trackName);
+    console.log(itunesResults[i].artistViewUrl);
     console.log(itunesResults[i].trackViewUrl);
   }
 });
@@ -80,9 +81,9 @@ $.ajax({
 
 
 var apiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
-var bandName = "" //$(this).attr("data-topic"); {put this sort of thing here}
 
-var ticketMasterQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=3&keyword="+ bandName + "&apikey=" + apiKey;
+
+//var ticketMasterQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=3&keyword="+ artist + "&apikey=" + apiKey;
 
 //  $.ajax({
 //    type:"GET",
