@@ -73,26 +73,26 @@ $.ajax({
   
   var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=5&keyword="+ bandName + "&apikey=" + apiKey;
   
-  $.ajax({
-    type:"GET",
-    url:queryURL,
-    async:true,
-    dataType: "json",
-    success: function(ticketMasterResults) {
-                console.log(ticketMasterResults);
-                var ticketMasterEvents = ticketMasterResults._embedded.events;
-                console.log(ticketMasterEvents);
-                // Parse the response.
-                // Do other things.
-                 for (var i=0; i<ticketMasterEvents.length; i++){
-                   console.log(ticketMasterEvents[i].name);
-                   console.log(ticketMasterEvents[i].url);
-                 }
-             },
-    error: function(xhr, status, err) {
-                // This time, we do not end up here!
-             }
-  });
+  // $.ajax({
+  //   type:"GET",
+  //   url:queryURL,
+  //   async:true,
+  //   dataType: "json",
+  //   success: function(ticketMasterResults) {
+  //               console.log(ticketMasterResults);
+  //               var ticketMasterEvents = ticketMasterResults._embedded.events;
+  //               console.log(ticketMasterEvents);
+  //               // Parse the response.
+  //               // Do other things.
+  //                for (var i=0; i<ticketMasterEvents.length; i++){
+  //                  console.log(ticketMasterEvents[i].name);
+  //                  console.log(ticketMasterEvents[i].url);
+  //                }
+  //            },
+  //   error: function(xhr, status, err) {
+  //               // This time, we do not end up here!
+  //            }
+  // });
 
 
   // $(document).on("click", ".tunes", displayItunesInfo);
