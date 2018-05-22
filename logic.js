@@ -120,7 +120,7 @@ $.ajax({
 $("#artistSearch").on("click", function(event){
   event.preventDefault();
   console.log("search");
-});
+
   var artist = $("#artist").val().trim();
   console.log(artist);
 
@@ -144,4 +144,4 @@ $("#artistSearch").on("click", function(event){
              }
   });
 
-  //  } );
+    } );
