@@ -12,8 +12,10 @@
 <body>
 
     <div class="container">
-    <div class="jumbotron">
+      <!--Jumbotron has artist name, search bar and carousel images-->
+      <div class="jumbotron">
         <h1 class="main-header">Artist Name</h1>
+        <!--artist search button-->
         <form>
           <div class="form-group ">
            <input class="form-control" id="artist" name="name" type="text" placeholder="Who is your favorite artist"/>
@@ -25,7 +27,7 @@
           </div>
          </form>
         <hr class="line-break">
-        
+        <!--carousel-->
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -51,34 +53,38 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>
-      </div>
-              <br>
-            <div id="wikipedia">
-              <p class="image-text">Wikipedia Stats</p>
-              <p>stuff</p>
-            </div>
-              
+        </div><!--end carousel-->
+      </div> <!--end jumbotron-->
             
-            <ul id="tour-dates">
-              <li class="tour-date-item">Upcoming tour date #1</li>
-              <li class="tour-date-item">Upcoming tour date #2</li>
-              <li class="tour-date-item">Upcoming tour date #3</li>
-            </ul>
-
-            <div id="music-samples">
-              <a class="itunes btn-primary btn-lg" href="#" role="button">Itunes</a>
-              <a class="youtube btn-primary btn-lg" href="#" role="button">YouTube</a>
-            </div>
-            <div class="links">
-              <a href="#" class="wiki-link">Wikipedia link</a>
-              <a href="#" class="ticketmaster-link">Ticketmaster link</a>
-              <a href="#" class="itunes-link">Itunes link</a>
-              <a href="#" class="youtube-link">YouTube link</a>
-            </div>
-        </div>
-    </div>
+      <br>
+      <!--Wikipedia Stats-->
+      <div id="wikipedia">
+          <p class="image-text">Wikipedia Stats</p>
+      </div>
+      <!--tour dates from ticketmaster-->       
+      <div id="tour-dates">      
+        <ul >
+            <li class="tour-date-item">Upcoming tour date #1</li>
+            <li class="tour-date-item">Upcoming tour date #2</li>
+            <li class="tour-date-item">Upcoming tour date #3</li>
+        </ul>
+      </div>
+      <!--Youtube and Itunes playable buttons-->
+      <div id="music-samples">
+          <a class="itunes btn-primary btn-lg" href="#" role="button">Itunes</a>
+          <a class="youtube btn-primary btn-lg" href="#" role="button">YouTube</a>
+      </div>
+      <!--links to see full page info-->
+      <div id="links">
+          <a href="#" class="wiki-link">Wikipedia link</a>
+          <a href="#" class="ticketmaster-link">Ticketmaster link</a>
+          <a href="#" class="itunes-link">Itunes link</a>
+          <a href="#" class="youtube-link">YouTube link</a>
+      </div>
+    </div> <!--end container-->
+    <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
     <script src= "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="logic.js"></script>
 </body>
 </html>
+
