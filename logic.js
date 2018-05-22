@@ -108,7 +108,7 @@ $.ajax({
     // var bandName = "" //$(this).attr("data-topic"); {put this sort of thing here}
     //test
     
-    var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=1&keyword="+ artist + "&apikey=" + apiKey;
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=1&keyword="+ artist + "&apikey=" + apiKey ;
     
     $.ajax({
       type:"GET",
