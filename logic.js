@@ -78,15 +78,10 @@ $.ajax({
     url:queryURL,
     async:true,
     dataType: "json",
-<<<<<<< HEAD
     success: function(ticketMasterResults) {
                 console.log(ticketMasterResults);
                 var ticketMasterEvents = ticketMasterResults._embedded.events;
                 console.log(ticketMasterEvents);
-=======
-    success: function(json) {
-                // console.log(json);
->>>>>>> master
                 // Parse the response.
                 // Do other things.
                  for (var i=0; i<ticketMasterEvents.length; i++){
