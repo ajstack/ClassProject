@@ -120,28 +120,40 @@ $.ajax({
 $("#artistSearch").on("click", function(event){
   event.preventDefault();
   console.log("search");
-});
+
   var artist = $("#artist").val().trim();
   console.log(artist);
 
   var apiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
  
   
-  var ticketMasterQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=1&keyword="+ artist + "&apikey=" + apiKey;
+  var ticketMasterQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=3&keyword="+ artist + "&apikey=" + apiKey;
   
   $.ajax({
     type:"GET",
     url:ticketMasterQueryURL,
     async:true,
     dataType: "json",
-    success: function(json) {
-                console.log(json);
-                // Parse the response.
-                // Do other things.
-             },
+    success: function(ticketMasterResults) {
+                     console.log(ticketMasterResults);
+                     var ticketMasterEvents = ticketMasterResults._embedded.events;
+                     console.log(ticketMasterEvents);
+                     // Parse the response.
+                     // Do other things.
+                      for (var i=0; i<ticketMasterEvents.length; i++){
+                        console.log(ticketMasterEvents[i].name);
+                        console.log(ticketMasterEvents[i].url);
+
+                        
+                      }
+
+
+
+
+                  },
     error: function(xhr, status, err) {
                 // This time, we do not end up here!
              }
   });
 
-  //  } );
+    } );
