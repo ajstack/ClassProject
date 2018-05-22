@@ -54,7 +54,7 @@ $.ajax({
     url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM",
     method: "GET"
   }).then(function(response) {
-    youTube = response
+    youTube = response;
    console.log(youTube);
   });
 
