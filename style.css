@@ -1,12 +1,22 @@
 .container {
-    width: 840px;
+    width: 98%;
     margin: auto;
-    padding: 2.5% 0;
-    background-color: rgb(130, 130, 156);
+    padding: 1%, 1%;
+    padding-top: 2%;
+    background:url('backgroundImage.jpg');
+    background-size:cover;
+    background-position:relative;
+    padding-top:100px;
+    padding-bottom:100px;
 }
 
 .jumbotron {
-    background-color: rgb(226, 218, 233);
+    position: relative;
+    opacity: 0.8;
+}
+
+#artist {
+    opacity: 1;
 }
 
 .main-header {
@@ -14,70 +24,52 @@
     text-align: center;
 }
 
-.lead {
-    color: #56565cee;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 3.2em;
-    font-weight: bold;
-    letter-spacing: 0.08em;
-    text-align: center;
-    margin-bottom: 0.65em;
-    background-color: lightslategray;
+#carouselExampleIndicators {
+    padding: 3px;
+    opacity: 1;
 }
 
-.music {
+#wikipedia {
+    position: relative;
+    width: 49%;
+    float: left;
+    background-color: rgb(107, 84, 190);
+    padding: 1%;
+    opacity: 0.9;
+}
+
+#tour-dates {
+    position: relative;
+    float: right;
+    width: 49%;
+    background-color: blueviolet;
+    padding: 2%;
+    opacity: 0.9;
+}
+
+.tour-date-item {
+    background-color: tan;
+}
+
+#music-samples {
     background-color: rgb(202, 33, 33);
     text-align: center;
+    padding-top: .5%;
+    clear: both;
 }
 
 .itunes {
     float: left;
     width: 48%;
     text-align: center;
+    opacity: 0.9;
 }
 
 .youtube {
     float: right;
     width: 48%;
     text-align: center;
-}
-
-#artist-image {
-    background-color: rgb(126, 118, 121);
-    clear: both;
-}
-
-img {
-    clear: both;
-}
-
-.image {
-    height: 300px;
-    width: 300px;
-    clear: both;
-}
-
-.image-body {
-    background-color: rgb(118, 128, 128);
-}
-
-.image-header {
-    background-color: rgb(147, 150, 161);
-}
-
-.image-text {
-    background-color: green;
-    float: left;
-    width: 48%;
-}
-
-.tour-dates {
-    float: right;
-    width: 48%;
-}
-
-.tour-date-item {
-    background-color: tan;
+    opacity: 0.9;
 }
 
 .links {
@@ -85,3 +77,5 @@ img {
     width: 99%;
     text-align: center;
 }
+
+
