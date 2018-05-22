@@ -120,8 +120,9 @@ $.ajax({
 $("#artistSearch").on("click", function(event){
   event.preventDefault();
   console.log("search");
+  console.log("what up")
 });
-  var artist = $("#artist").val().trim();
+  var artist = $("#artist").val();
   console.log(artist);
 
   var apiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
