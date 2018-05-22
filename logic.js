@@ -1,7 +1,11 @@
 // console.log("hi");
 
-function renderButtons() {
-var itunesInfo;
+// function renderButtons() {
+// var itunesInfo;
+// var artist;
+// var queryURL = "https://itunes.apple.com/search?term=" + &limit=5"
+
+
 $.ajax({
     url: "https://itunes.apple.com/search?term=Whitney&limit=5",
     method: "GET"
@@ -9,7 +13,7 @@ $.ajax({
     itunesInfo = response
    console.log(itunesInfo);
   });
-}
+// }
 //  var itunesObject = JSON.parse(itunesInfo);
 //  console.log(itunesObject);
   
@@ -75,7 +79,7 @@ $.ajax({
     async:true,
     dataType: "json",
     success: function(json) {
-                console.log(json);
+                // console.log(json);
                 // Parse the response.
                 // Do other things.
              },
@@ -85,4 +89,35 @@ $.ajax({
   });
 
 
-  $(document).on("click", ".tunes", displayItuneInfo);
+  // $(document).on("click", ".tunes", displayItunesInfo);
+
+  $("#artistSearch").on("click", function(event){
+    event.preventDefault();
+    console.log("search");
+
+    var artist = $("#artist").val().trim();
+    console.log(artist);
+
+    var apiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
+    // var bandName = "" //$(this).attr("data-topic"); {put this sort of thing here}
+    
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=1&keyword="+ artist + "&apikey=" + apiKey;
+    
+    $.ajax({
+      type:"GET",
+      url:queryURL,
+      async:true,
+      dataType: "json",
+      success: function(json) {
+                  console.log(json);
+                  // Parse the response.
+                  // Do other things.
+               },
+      error: function(xhr, status, err) {
+                  // This time, we do not end up here!
+               }
+    });
+
+     } );
+
+
