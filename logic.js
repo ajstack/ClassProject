@@ -1,4 +1,6 @@
 // console.log("hi");
+
+function renderButtons() {
 var itunesInfo;
 $.ajax({
     url: "https://itunes.apple.com/search?term=Whitney&limit=5",
@@ -7,6 +9,7 @@ $.ajax({
     itunesInfo = response
    console.log(itunesInfo);
   });
+}
 //  var itunesObject = JSON.parse(itunesInfo);
 //  console.log(itunesObject);
   
@@ -35,7 +38,9 @@ $.ajax( {
   // }
   }).then(function(response) {
     wikiData = response;
-    console.log(wikiData);
+    // console.log(wikiData);
+
+
   });
 
 
@@ -55,7 +60,7 @@ $.ajax({
     method: "GET"
   }).then(function(response) {
     youTube = response
-   console.log(youTube);
+  //  console.log(youTube);
   });
 
 
@@ -84,3 +89,6 @@ $.ajax({
                 // This time, we do not end up here!
              }
   });
+
+
+  $(document).on("click", ".tunes", displayItuneInfo);
