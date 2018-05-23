@@ -143,7 +143,12 @@ $("#artistSearch").on("click", function(event){
                       for (var i=0; i<ticketMasterEvents.length; i++){
                         console.log(ticketMasterEvents[i].name);
                         console.log(ticketMasterEvents[i].url);
+                        var listItem = $("<li>");
+                        var tourDates = ("<a>" + ticketMasterEvents[i].name + "</a>");
+                        $(tourDates).attr("href", ticketMasterEvents[i].url);
+                        listItem.append(tourDates);
 
+                        $(tourDates).appendTo("#tour-dates");
                         
                       }
 
