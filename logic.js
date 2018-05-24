@@ -1,13 +1,12 @@
 // console.log("hi");
 
-// function renderButtons() {
 // var itunesInfo;
 // var artist;
-// var queryURL = "https://itunes.apple.com/search?term=" + &limit=5"
+var itunesQueryURL = "https://itunes.apple.com/search?term=" + artist + "&limit=5";
 
 
 $.ajax({
-  url: "https://itunes.apple.com/search?term=Whitney&limit=5",
+  url: itunesQueryURL,
   method: "GET"
 }).then(function (response) {
   itunesInfo = response
@@ -26,7 +25,7 @@ $.ajax({
   }
 });
 
-// }
+
 // var itunesObject = JSON.parse(itunesInfo);
 // console.log(itunesObject);
 
@@ -89,10 +88,10 @@ $("#artistSearch").on("click", function (event) {
     youTube = response
     // console.log(youTube);
     var youTubeVideos = youTube.items;
-    console.log(youTubeVideos);
+    //console.log(youTubeVideos);
     for (var i = 0; i < youTubeVideos.length; i++) {
-      console.log(youTubeVideos[i].snippet.title);
-      console.log("https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId);
+      //console.log(youTubeVideos[i].snippet.title);
+      //console.log("https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId);
 
     }
   });
@@ -148,32 +147,50 @@ $("#artistSearch").on("click", function (event) {
     async: true,
     dataType: "json",
     success: function (ticketMasterResults) {
-      console.log(ticketMasterResults);
+      //console.log(ticketMasterResults);
       var ticketMasterEvents = ticketMasterResults._embedded.events;
-      console.log(ticketMasterEvents);
+      //console.log(ticketMasterEvents);
       // Parse the response.
       // Do other things.
       for (var i = 0; i < ticketMasterEvents.length; i++) {
-        console.log(ticketMasterEvents[i].name);
-        console.log(ticketMasterEvents[i].url);
+        //console.log(ticketMasterEvents[i].name);
+        //console.log(ticketMasterEvents[i].url);
         var listItem = $("<li>");
         var tourDates = ("<a href =" + ticketMasterEvents[i].url + " target='_blank'>" + ticketMasterEvents[i].name + "</a>");
-       
 
         listItem.prepend(tourDates);
 
         $(listItem).appendTo("#tour-dates");
 
       }
-
-
-
-
     },
     error: function (xhr, status, err) {
       // This time, we do not end up here!
     }
   });
+
+  var itunesQueryURL = "https://itunes.apple.com/search?term=" + artist + "&limit=3";
+
+  $.ajax({
+    url: itunesQueryURL,
+    method: "GET"
+  }).then(function (response) {
+    itunesInfo = response
+    //console.log(itunesInfo);
+    var itunesObject = JSON.parse(itunesInfo);
+    console.log(itunesObject);
+
+    var itunesResults = itunesObject.results
+    // console.log(itunesResults);
+
+    for (var i = 0; i < itunesResults.length; i++) {
+      console.log(itunesResults[i].artistName);
+      console.log(itunesResults[i].trackName);
+      console.log(itunesResults[i].artistViewUrl);
+      console.log(itunesResults[i].trackViewUrl);
+    }
+  });
+
 
 });
 
