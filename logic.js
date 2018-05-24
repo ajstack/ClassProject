@@ -174,6 +174,7 @@ $("#artistSearch").on("click", function(event){
              }
   });
 
+
     } );
 
 
