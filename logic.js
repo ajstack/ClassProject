@@ -9,16 +9,16 @@
 $.ajax({
   url: "https://itunes.apple.com/search?term=Whitney&limit=5",
   method: "GET"
-}).then(function(response) {
-    itunesInfo = response
+}).then(function (response) {
+  itunesInfo = response
   //console.log(itunesInfo);
   var itunesObject = JSON.parse(itunesInfo);
   // console.log(itunesObject);
-  
+
   var itunesResults = itunesObject.results
   // console.log(itunesResults);
 
-  for (var i=0; i<itunesResults.length; i++){
+  for (var i = 0; i < itunesResults.length; i++) {
     // console.log(itunesResults[i].artistName);
     // console.log(itunesResults[i].trackName);
     // console.log(itunesResults[i].artistViewUrl);
@@ -27,8 +27,8 @@ $.ajax({
 });
 
 // }
-  // var itunesObject = JSON.parse(itunesInfo);
-  // console.log(itunesObject);
+// var itunesObject = JSON.parse(itunesInfo);
+// console.log(itunesObject);
 
 // console.log("hi");
 // var itunesInfo;
@@ -40,7 +40,7 @@ $.ajax({
 //     console.log(itunesInfo);
 //   });
 
-  
+
 
 // Using jQuery
 // var wikiData;
@@ -73,30 +73,30 @@ $.ajax({
 
 
 
-$("#artistSearch").on("click", function(event){
+$("#artistSearch").on("click", function (event) {
   event.preventDefault();
 
-// https://www.youtube.com/watch?v=
-var artist = $("#artist").val().trim();
-var youTube
-var youTubeAPIkey = "AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM";
-var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + artist + "&key=" + youTubeAPIkey;
-$.ajax({
-  // url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM",
-  url: youTubeURL,
-  method: "GET"
-}).then(function(response) {
+  // https://www.youtube.com/watch?v=
+  var artist = $("#artist").val().trim();
+  var youTube
+  var youTubeAPIkey = "AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM";
+  var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + artist + "&key=" + youTubeAPIkey;
+  $.ajax({
+    // url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM",
+    url: youTubeURL,
+    method: "GET"
+  }).then(function (response) {
     youTube = response
     // console.log(youTube);
     var youTubeVideos = youTube.items;
     console.log(youTubeVideos);
-    for (var i=0; i<youTubeVideos.length; i++){
+    for (var i = 0; i < youTubeVideos.length; i++) {
       console.log(youTubeVideos[i].snippet.title);
       console.log("https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId);
-    
+
     }
-});
-// var youTubeVidEmbed = youTube.items.
+  });
+  // var youTubeVidEmbed = youTube.items.
 
 });
 
@@ -130,7 +130,7 @@ $.ajax({
 
 // $(document).on("click", ".tunes", displayItunesInfo);
 
-$("#artistSearch").on("click", function(event){
+$("#artistSearch").on("click", function (event) {
   event.preventDefault();
   // console.log("search");
 
@@ -138,43 +138,43 @@ $("#artistSearch").on("click", function(event){
   // console.log(artist);
 
   var apiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
- 
-  
-  var ticketMasterQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=3&keyword="+ artist + "&apikey=" + apiKey;
-  
+
+
+  var ticketMasterQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=3&keyword=" + artist + "&apikey=" + apiKey;
+
   $.ajax({
-    type:"GET",
-    url:ticketMasterQueryURL,
-    async:true,
+    type: "GET",
+    url: ticketMasterQueryURL,
+    async: true,
     dataType: "json",
-    success: function(ticketMasterResults) {
-                     console.log(ticketMasterResults);
-                     var ticketMasterEvents = ticketMasterResults._embedded.events;
-                     console.log(ticketMasterEvents);
-                     // Parse the response.
-                     // Do other things.
-                      for (var i=0; i<ticketMasterEvents.length; i++){
-                        console.log(ticketMasterEvents[i].name);
-                        console.log(ticketMasterEvents[i].url);
-                        var listItem = $("<li>");
-                        var tourDates = ("<a>" + ticketMasterEvents[i].name + "</a>");
-                        $(tourDates).attr("href", ticketMasterEvents[i].url);
-                        listItem.append(tourDates);
+    success: function (ticketMasterResults) {
+      console.log(ticketMasterResults);
+      var ticketMasterEvents = ticketMasterResults._embedded.events;
+      console.log(ticketMasterEvents);
+      // Parse the response.
+      // Do other things.
+      for (var i = 0; i < ticketMasterEvents.length; i++) {
+        console.log(ticketMasterEvents[i].name);
+        console.log(ticketMasterEvents[i].url);
+        var listItem = $("<li>");
+        var tourDates = ("<a href =" + ticketMasterEvents[i].url + ">" + ticketMasterEvents[i].name + "</a>");
 
-                        $(tourDates).appendTo("#tour-dates");
-                        
-                      }
+        listItem.prepend(tourDates);
 
+        $(listItem).appendTo("#tour-dates");
 
+      }
 
 
-                  },
-    error: function(xhr, status, err) {
-                // This time, we do not end up here!
-             }
+
+
+    },
+    error: function (xhr, status, err) {
+      // This time, we do not end up here!
+    }
   });
 
-    } );
+});
 
 
-  
+
