@@ -13,16 +13,16 @@ $.ajax({
     itunesInfo = response
   //console.log(itunesInfo);
   var itunesObject = JSON.parse(itunesInfo);
-  console.log(itunesObject);
+  // console.log(itunesObject);
   
   var itunesResults = itunesObject.results
-  console.log(itunesResults);
+  // console.log(itunesResults);
 
   for (var i=0; i<itunesResults.length; i++){
-    console.log(itunesResults[i].artistName);
-    console.log(itunesResults[i].trackName);
-    console.log(itunesResults[i].artistViewUrl);
-    console.log(itunesResults[i].trackViewUrl);
+    // console.log(itunesResults[i].artistName);
+    // console.log(itunesResults[i].trackName);
+    // console.log(itunesResults[i].artistViewUrl);
+    // console.log(itunesResults[i].trackViewUrl);
   }
 });
 
@@ -71,13 +71,23 @@ $.ajax({
 //       console.log(wikiData);
 // });
 
+
+
+$("#artistSearch").on("click", function(event){
+  event.preventDefault();
+
+// https://www.youtube.com/watch?v=
+var artist = $("#artist").val().trim();
 var youTube
+var youTubeAPIkey = "AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM";
+var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + artist + "&key=" + youTubeAPIkey;
 $.ajax({
-  url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM",
+  // url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM",
+  url: youTubeURL,
   method: "GET"
 }).then(function(response) {
     youTube = response
-    console.log(youTube);
+    // console.log(youTube);
     var youTubeVideos = youTube.items;
     console.log(youTubeVideos);
     for (var i=0; i<youTubeVideos.length; i++){
@@ -85,6 +95,9 @@ $.ajax({
       console.log("https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId);
     
     }
+});
+// var youTubeVidEmbed = youTube.items.
+
 });
 
 
@@ -119,10 +132,10 @@ $.ajax({
 
 $("#artistSearch").on("click", function(event){
   event.preventDefault();
-  console.log("search");
+  // console.log("search");
 
   var artist = $("#artist").val().trim();
-  console.log(artist);
+  // console.log(artist);
 
   var apiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
  
@@ -143,7 +156,12 @@ $("#artistSearch").on("click", function(event){
                       for (var i=0; i<ticketMasterEvents.length; i++){
                         console.log(ticketMasterEvents[i].name);
                         console.log(ticketMasterEvents[i].url);
+                        var listItem = $("<li>");
+                        var tourDates = ("<a>" + ticketMasterEvents[i].name + "</a>");
+                        $(tourDates).attr("href", ticketMasterEvents[i].url);
+                        listItem.append(tourDates);
 
+                        $(tourDates).appendTo("#tour-dates");
                         
                       }
 
@@ -157,3 +175,6 @@ $("#artistSearch").on("click", function(event){
   });
 
     } );
+
+
+  
