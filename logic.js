@@ -46,16 +46,16 @@ $.ajax({
 // var wikiData;
 // $.ajax( {
 // url: "https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json&formatversion=2",
-// // data: queryData,
+// //data: queryData,
 // dataType: 'jsonp',
 // type: 'POST',
 // headers: { 'Api-User-Agent': 'Example/1.0' },
-// // success: function(data) {
-// //    // do something with data
-// // }
+// success: function(data) {
+//    // do something with data
+// }
 // }).then(function(response) {
 //   wikiData = response;
-//   // console.log(wikiData);
+//   console.log(wikiData);
 
 
 // });
@@ -157,7 +157,8 @@ $("#artistSearch").on("click", function (event) {
         console.log(ticketMasterEvents[i].name);
         console.log(ticketMasterEvents[i].url);
         var listItem = $("<li>");
-        var tourDates = ("<a href =" + ticketMasterEvents[i].url + ">" + ticketMasterEvents[i].name + "</a>");
+        var tourDates = ("<a href =" + ticketMasterEvents[i].url + " target='_blank'>" + ticketMasterEvents[i].name + "</a>");
+       
 
         listItem.prepend(tourDates);
 
