@@ -2,28 +2,28 @@
 
 // var itunesInfo;
 // var artist;
-var itunesQueryURL = "https://itunes.apple.com/search?term=" + artist + "&limit=5";
+// var itunesQueryURL = "https://itunes.apple.com/search?term=" + artist + "&limit=5";
 
 
-$.ajax({
-  url: itunesQueryURL,
-  method: "GET"
-}).then(function (response) {
-  itunesInfo = response
-  //console.log(itunesInfo);
-  var itunesObject = JSON.parse(itunesInfo);
-  // console.log(itunesObject);
+// $.ajax({
+//   url: itunesQueryURL,
+//   method: "GET"
+// }).then(function (response) {
+//   itunesInfo = response
+//   //console.log(itunesInfo);
+//   var itunesObject = JSON.parse(itunesInfo);
+//   // console.log(itunesObject);
 
-  var itunesResults = itunesObject.results
-  // console.log(itunesResults);
+//   var itunesResults = itunesObject.results
+//   // console.log(itunesResults);
 
-  for (var i = 0; i < itunesResults.length; i++) {
-    // console.log(itunesResults[i].artistName);
-    // console.log(itunesResults[i].trackName);
-    // console.log(itunesResults[i].artistViewUrl);
-    // console.log(itunesResults[i].trackViewUrl);
-  }
-});
+//   for (var i = 0; i < itunesResults.length; i++) {
+//     // console.log(itunesResults[i].artistName);
+//     // console.log(itunesResults[i].trackName);
+//     // console.log(itunesResults[i].artistViewUrl);
+//     // console.log(itunesResults[i].trackViewUrl);
+//   }
+// });
 
 
 // var itunesObject = JSON.parse(itunesInfo);
@@ -100,33 +100,6 @@ $("#artistSearch").on("click", function (event) {
 });
 
 
-// var apiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
-
-// var ticketMasterQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=3&keyword="+ artist + "&apikey=" + apiKey;
-
-//  $.ajax({
-//    type:"GET",
-//    url:ticketMasterQueryURL,
-//    async:true,
-//    dataType: "json",
-//    success: function(ticketMasterResults) {
-//                console.log(ticketMasterResults);
-//                var ticketMasterEvents = ticketMasterResults._embedded.events;
-//                console.log(ticketMasterEvents);
-//                // Parse the response.
-//                // Do other things.
-//                 for (var i=0; i<ticketMasterEvents.length; i++){
-//                   console.log(ticketMasterEvents[i].name);
-//                   console.log(ticketMasterEvents[i].url);
-
-//                 }
-//             },
-//    error: function(xhr, status, err) {
-//                // This time, we do not end up here!
-//             }
-//  });
-
-
 // $(document).on("click", ".tunes", displayItunesInfo);
 
 $("#artistSearch").on("click", function (event) {
@@ -136,10 +109,10 @@ $("#artistSearch").on("click", function (event) {
   var artist = $("#artist").val().trim();
   // console.log(artist);
 
-  var apiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
+  var ticketMasterApiKey = "kJgzQXUSlb55GtDLH5Qh4BI1eZYNZvcp";
 
 
-  var ticketMasterQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=3&keyword=" + artist + "&apikey=" + apiKey;
+  var ticketMasterQueryURL = "https://app.ticketmaster.com/discovery/v2/events.json?size=3&keyword=" + artist + "&apikey=" + ticketMasterApiKey;
 
   $.ajax({
     type: "GET",
@@ -150,9 +123,9 @@ $("#artistSearch").on("click", function (event) {
       //console.log(ticketMasterResults);
       var ticketMasterEvents = ticketMasterResults._embedded.events;
       //console.log(ticketMasterEvents);
-      // Parse the response.
-      // Do other things.
+      $("#tour-dates").empty();
       for (var i = 0; i < ticketMasterEvents.length; i++) {
+
         //console.log(ticketMasterEvents[i].name);
         //console.log(ticketMasterEvents[i].url);
         var listItem = $("<li>");
@@ -178,16 +151,22 @@ $("#artistSearch").on("click", function (event) {
     itunesInfo = response
     //console.log(itunesInfo);
     var itunesObject = JSON.parse(itunesInfo);
-    console.log(itunesObject);
+    //console.log(itunesObject);
 
     var itunesResults = itunesObject.results
-    // console.log(itunesResults);
+    console.log(itunesResults);
 
     for (var i = 0; i < itunesResults.length; i++) {
       console.log(itunesResults[i].artistName);
       console.log(itunesResults[i].trackName);
       console.log(itunesResults[i].artistViewUrl);
       console.log(itunesResults[i].trackViewUrl);
+
+      var artistImg = $("<img>");
+      
+      artistImg.attr("src", itunesResults[i].artworkUrl100);
+
+      $(artistImg).appendTo("#images");
     }
   });
 
