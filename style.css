@@ -54,14 +54,13 @@
 }
 
 .tour-date-item {
-    background-color: tan;
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
 }
 
 #music-samples {
-    background-color: rgb(233, 190, 226, 0.9);
+
     text-align: center;
-    padding-top: 2px;
+    padding-top: 15px;
     padding-bottom: 2px;
     clear: both;
 }
@@ -83,7 +82,7 @@
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
 }
 
-#links {
+#navbar {
     position: relative;
     bottom: 2px;
     clear: both;
@@ -92,6 +91,7 @@
     text-align: center;
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
     z-index: 1;
+    display: inline-block;
 }
 
 
