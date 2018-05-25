@@ -142,6 +142,10 @@ $("#artistSearch").on("click", function (event) {
     }
   });
 
+<<<<<<< HEAD
+
+    } );
+=======
   var itunesQueryURL = "https://itunes.apple.com/search?term=" + artist + "&limit=3";
 
   $.ajax({
@@ -173,5 +177,6 @@ $("#artistSearch").on("click", function (event) {
 
 });
 
+>>>>>>> master
 
 

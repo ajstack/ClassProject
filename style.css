@@ -1,8 +1,6 @@
 .container {
     width: 100%;
     margin: auto;
-    padding: 1%, 1%;
-    padding-top: 2%;
     background:url('backgroundImage.jpg');
     background-size:cover;
     background-position:relative;
@@ -41,6 +39,7 @@
     padding: 1%;
     opacity: 0.9;
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
+    margin-bottom: 5%;
 }
 
 #tour-dates {
@@ -51,6 +50,7 @@
     padding: 2%;
     opacity: 0.9;
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
+    margin-bottom: 5%;
 }
 
 .tour-date-item {
@@ -67,6 +67,8 @@
 }
 
 .itunes {
+    position: relative;
+    margin-top: 10px;
     float: left;
     width: 48%;
     text-align: center;
@@ -75,6 +77,8 @@
 }
 
 .youtube {
+    position: relative;
+    margin-top: 10px;
     float: right;
     width: 48%;
     text-align: center;
@@ -82,15 +86,13 @@
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
 }
 
-#links {
-    position: relative;
-    bottom: 2px;
-    clear: both;
-    padding-top: 5px;
-    width: 99%;
+#navbar {
     text-align: center;
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
-    z-index: 1;
+    clear: both;
+    text-indent: 125px;
+    padding-top: 10px;
+
 }
 
 
