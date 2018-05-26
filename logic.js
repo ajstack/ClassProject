@@ -1,45 +1,3 @@
-// console.log("hi");
-
-// var itunesInfo;
-// var artist;
-// var itunesQueryURL = "https://itunes.apple.com/search?term=" + artist + "&limit=5";
-
-
-// $.ajax({
-//   url: itunesQueryURL,
-//   method: "GET"
-// }).then(function (response) {
-//   itunesInfo = response
-//   //console.log(itunesInfo);
-//   var itunesObject = JSON.parse(itunesInfo);
-//   // console.log(itunesObject);
-
-//   var itunesResults = itunesObject.results
-//   // console.log(itunesResults);
-
-//   for (var i = 0; i < itunesResults.length; i++) {
-//     // console.log(itunesResults[i].artistName);
-//     // console.log(itunesResults[i].trackName);
-//     // console.log(itunesResults[i].artistViewUrl);
-//     // console.log(itunesResults[i].trackViewUrl);
-//   }
-// });
-
-
-// var itunesObject = JSON.parse(itunesInfo);
-// console.log(itunesObject);
-
-// console.log("hi");
-// var itunesInfo;
-// $.ajax({
-//     url: "https://itunes.apple.com/search?term=Whitney&limit=5",
-//     method: "GET"
-//   }).then(function(response) {
-//     itunesInfo = response
-//     console.log(itunesInfo);
-//   });
-
-
 
 // Using jQuery
 // var wikiData;
@@ -155,19 +113,25 @@ $("#artistSearch").on("click", function (event) {
 
     var itunesResults = itunesObject.results
     console.log(itunesResults);
-
+    //$("#").empty(); {put div for itunes here to clear with every search}
+    $("#artist-image").empty();
     for (var i = 0; i < itunesResults.length; i++) {
       console.log(itunesResults[i].artistName);
       console.log(itunesResults[i].trackName);
       console.log(itunesResults[i].artistViewUrl);
       console.log(itunesResults[i].trackViewUrl);
 
-      var artistImg = $("<img>");
+      // var artistImg = $("<img>");
       
-      artistImg.attr("src", itunesResults[i].artworkUrl100);
+      // artistImg.attr("src", itunesResults[0].artworkUrl100);
 
-      $(artistImg).appendTo("#images");
+      // $(artistImg).appendTo("#artist-image");
     }
+    // var artistImg = $("<img>");
+      
+    //   artistImg.attr("src", itunesResults[0].artworkUrl100);
+
+    //   $(artistImg).appendTo("#artist-image");
   });
 
 
