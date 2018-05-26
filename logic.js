@@ -37,11 +37,12 @@ $("#artistSearch").on("click", function (event) {
   var artist = $("#artist").val().trim();
   var youTube
   var youTubeAPIkey = "AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM";
-  var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + artist + "&key=" + youTubeAPIkey;
+  var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + artist + "&key=" + youTubeAPIkey;
   $.ajax({
     // url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM",
     url: youTubeURL,
-    method: "GET"
+    method: "GET",
+    dataType: 'jsonp' // added this in hopes of stopping the MIME error, it didn't work
   }).then(function (response) {
     youTube = response
     // console.log(youTube);
@@ -50,10 +51,32 @@ $("#artistSearch").on("click", function (event) {
     for (var i = 0; i < youTubeVideos.length; i++) {
       //console.log(youTubeVideos[i].snippet.title);
       //console.log("https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId);
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement("script");
 
+      tag.src = "https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId;
+      var firstScriptTag = document.getElementsByTagName("script")[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          height: "390",
+          width: "640",
+          videoId: youTubeVideos[i].id.videoId,
+          events: {
+            "onReady": onPlayerReady,
+            "onStateChange": onPlayerStateChange
+          }
+        });
+      }
     }
   });
   // var youTubeVidEmbed = youTube.items.
+
+
 
 });
 
@@ -121,17 +144,14 @@ $("#artistSearch").on("click", function (event) {
       console.log(itunesResults[i].artistViewUrl);
       console.log(itunesResults[i].trackViewUrl);
 
-      // var artistImg = $("<img>");
       
-      // artistImg.attr("src", itunesResults[0].artworkUrl100);
-
-      // $(artistImg).appendTo("#artist-image");
     }
-    // var artistImg = $("<img>");
-      
-    //   artistImg.attr("src", itunesResults[0].artworkUrl100);
+    var artistImg = $("<img>");
 
-    //   $(artistImg).appendTo("#artist-image");
+    artistImg.attr("src", itunesResults[0].artworkUrl100);
+
+    $(artistImg).appendTo("#artist-image");
+    //$(artistImg).appendTo("#wikipedia");
   });
 
 
