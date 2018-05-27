@@ -42,36 +42,40 @@ $("#artistSearch").on("click", function (event) {
     // url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM",
     url: youTubeURL,
     method: "GET",
-    dataType: 'jsonp' // added this in hopes of stopping the MIME error, it didn't work
+    dataType: 'jsonp' // changed datatype first to "application/json and then just 'json' and then started getting a response from youTube API
   }).then(function (response) {
     youTube = response
     // console.log(youTube);
     var youTubeVideos = youTube.items;
-    //console.log(youTubeVideos);
+    console.log(youTubeVideos);
     for (var i = 0; i < youTubeVideos.length; i++) {
       //console.log(youTubeVideos[i].snippet.title);
-      //console.log("https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId);
+      // console.log("https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId);
+      var iframeSrc = "https://www.youtube.com/embed/" + youTubeVideos[i].id.videoId;
+      console.log(iframeSrc);
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement("script");
 
-      tag.src = "https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId;
-      var firstScriptTag = document.getElementsByTagName("script")[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      $("#youtubeIframe").attr("src", iframeSrc);
+
+      // tag.src = "https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId;
+      // var firstScriptTag = document.getElementsByTagName("script")[0];
+      // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
       var player;
-      function onYouTubeIframeAPIReady() {
-        player = new YT.Player("player", {
-          height: "390",
-          width: "640",
-          videoId: youTubeVideos[i].id.videoId,
-          events: {
-            "onReady": onPlayerReady,
-            "onStateChange": onPlayerStateChange
-          }
-        });
-      }
+      // function onYouTubeIframeAPIReady() {
+      //   new YT.Player("player", {
+      //     height: "390",
+      //     width: "640",
+      //     videoId: youTubeVideos[i].id.videoId,
+      //     events: {
+      //       "onReady": onPlayerReady,
+      //       "onStateChange": onPlayerStateChange
+      //     }
+      //   });
+      // }
     }
   });
   // var youTubeVidEmbed = youTube.items.
@@ -135,14 +139,15 @@ $("#artistSearch").on("click", function (event) {
     //console.log(itunesObject);
 
     var itunesResults = itunesObject.results
-    console.log(itunesResults);
+    // console.log(itunesResults);
     //$("#").empty(); {put div for itunes here to clear with every search}
     $("#artist-image").empty();
     for (var i = 0; i < itunesResults.length; i++) {
-      console.log(itunesResults[i].artistName);
-      console.log(itunesResults[i].trackName);
-      console.log(itunesResults[i].artistViewUrl);
-      console.log(itunesResults[i].trackViewUrl);
+      // console.log(itunesResults[i].artistName);
+      // console.log(itunesResults[i].trackName);
+      // console.log(itunesResults[i].artistViewUrl);
+      // console.log(itunesResults[i].trackViewUrl);
+      // console.log(itunesResults[i].artworkUrl100);
 
       
     }
@@ -157,5 +162,32 @@ $("#artistSearch").on("click", function (event) {
 
 });
 
+
+
+//  $("#artistSearch").on("click", function(event){
+//   event.preventDefault();
+
+//   var artist = $("#artist").val().trim();
+//   var wikipedia
+ 
+//   var wikipediaURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + artist + "&key=" + youTubeAPIkey;
+
+// var wikiData;
+// $.ajax( {
+// url: "https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json&formatversion=2",
+// // data: queryData,
+// dataType: 'jsonp',
+// type: 'POST',
+// headers: { 'Api-User-Agent': 'Example/1.0' },
+// // success: function(data) {
+// //    // do something with data
+// // }
+// }).then(function(response) {
+//   wikiData = response;
+//   console.log(wikiData);
+
+// });
+
+// });
 
 
