@@ -77,7 +77,7 @@ $("#artistSearch").on("click", function (event) {
 
   // https://www.youtube.com/watch?v=
   var artist = $("#artist").val().trim();
-  var youTube
+  var youTube;
   var youTubeAPIkey = "AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM";
   var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + artist + "&key=" + youTubeAPIkey;
   $.ajax({
@@ -89,7 +89,23 @@ $("#artistSearch").on("click", function (event) {
     // console.log(youTube);
     var youTubeVideos = youTube.items;
     //console.log(youTubeVideos);
-    for (var i = 0; i < youTubeVideos.length; i++) {
+    for (var i = 0; i < youTubeVideos.
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      length; i++) {
       //console.log(youTubeVideos[i].snippet.title);
       //console.log("https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId);
 
