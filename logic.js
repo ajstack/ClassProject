@@ -3,13 +3,12 @@
 $("#artistSearch").on("click", function (event) {
   event.preventDefault();
 
-  // https://www.youtube.com/watch?v=
   var artist = $("#artist").val().trim();
   var youTube
   var youTubeAPIkey = "AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM";
   var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=7&q=" + artist + "&key=" + youTubeAPIkey;
   $.ajax({
-    // url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM",
+    
     url: youTubeURL,
     method: "GET",
     dataType: 'jsonp' // changed datatype first to "application/json and then just 'json' and then started getting a response from youTube API
@@ -28,30 +27,12 @@ $("#artistSearch").on("click", function (event) {
 
       $("#youtubeIframe").attr("src", iframeSrc);
 
-      // tag.src = "https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId;
-      // var firstScriptTag = document.getElementsByTagName("script")[0];
-      // firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
+   
       var player;
-      // function onYouTubeIframeAPIReady() {
-      //   new YT.Player("player", {
-      //     height: "390",
-      //     width: "640",
-      //     videoId: youTubeVideos[i].id.videoId,
-      //     events: {
-      //       "onReady": onPlayerReady,
-      //       "onStateChange": onPlayerStateChange
-      //     }
-      //   });
-      // }
+    
     }
   });
-  // var youTubeVidEmbed = youTube.items.
-
-
-
+  
 });
 
 
