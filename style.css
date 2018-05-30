@@ -1,6 +1,8 @@
 .container {
     width: 100%;
     margin: auto;
+    padding: 1%, 1%;
+    padding-top: 2%;
     background:url('backgroundImage.jpg');
     background-size:cover;
     background-position:relative;
@@ -39,60 +41,53 @@
     padding: 1%;
     opacity: 0.9;
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
-    margin-bottom: 5%;
+}
+
+#artist-image {
+    position: relative;
+    float: left;
+    width: 49%;
+    text-indent: 20%;
+    background-color: rgb(243, 177, 92, 0.9);
+    padding: 2%;
+    opacity: 0.9;
+    font-family:'Allerta Stencil','Times New Roman', Times, serif;
 }
 
 #tour-dates {
     position: relative;
     float: right;
     width: 49%;
+    text-indent: 20%;
     background-color: rgb(243, 177, 92, 0.9);
     padding: 2%;
     opacity: 0.9;
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
-    margin-bottom: 5%;
 }
 
 .tour-date-item {
-    background-color: tan;
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
 }
 
+#youtubeIframe {
+    padding-top: 40px;
+}
+
+#youtube {
+    text-indent: 20%;
+}
+
 #music-samples {
-    background-color: rgb(233, 190, 226, 0.9);
+
     text-align: center;
-    padding-top: 2px;
+    padding-top: 15px;
     padding-bottom: 2px;
     clear: both;
 }
 
-.itunes {
-    position: relative;
-    margin-top: 10px;
-    float: left;
-    width: 48%;
-    text-align: center;
-    opacity: 0.9;
+#footer {
     font-family:'Allerta Stencil','Times New Roman', Times, serif;
-}
-
-.youtube {
-    position: relative;
-    margin-top: 10px;
-    float: right;
-    width: 48%;
-    text-align: center;
-    opacity: 0.9;
-    font-family:'Allerta Stencil','Times New Roman', Times, serif;
-}
-
-#navbar {
-    text-align: center;
-    font-family:'Allerta Stencil','Times New Roman', Times, serif;
-    clear: both;
-    text-indent: 125px;
-    padding-top: 10px;
-
+    color:  blue;
 }
 
 
