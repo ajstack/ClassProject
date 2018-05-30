@@ -1,34 +1,4 @@
 
-// Using jQuery
-// var wikiData;
-// $.ajax( {
-// url: "https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json&formatversion=2",
-// //data: queryData,
-// dataType: 'jsonp',
-// type: 'POST',
-// headers: { 'Api-User-Agent': 'Example/1.0' },
-// success: function(data) {
-//    // do something with data
-// }
-// }).then(function(response) {
-//   wikiData = response;
-//   console.log(wikiData);
-
-
-// });
-
-
-
-// var wikiData;
-// $.ajax({
-//       url: "https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json&formatversion=2",
-//       method: "GET"
-//     }).then(function(response) {
-//       wikiData = response
-//       console.log(wikiData);
-// });
-
-
 
 $("#artistSearch").on("click", function (event) {
   event.preventDefault();
@@ -37,7 +7,7 @@ $("#artistSearch").on("click", function (event) {
   var artist = $("#artist").val().trim();
   var youTube
   var youTubeAPIkey = "AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM";
-  var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=" + artist + "&key=" + youTubeAPIkey;
+  var youTubeURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=7&q=" + artist + "&key=" + youTubeAPIkey;
   $.ajax({
     // url: "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyDXIkTs44eGNfH2r9jIyECiQgv4dJ6_RWM",
     url: youTubeURL,
@@ -51,7 +21,7 @@ $("#artistSearch").on("click", function (event) {
     for (var i = 0; i < youTubeVideos.length; i++) {
       //console.log(youTubeVideos[i].snippet.title);
       // console.log("https://www.youtube.com/watch?v=" + youTubeVideos[i].id.videoId);
-      var iframeSrc = "https://www.youtube.com/embed/" + youTubeVideos[i].id.videoId;
+      var iframeSrc = "https://www.youtube.com/embed/" + youTubeVideos[6].id.videoId;
       console.log(iframeSrc);
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement("script");
@@ -85,7 +55,6 @@ $("#artistSearch").on("click", function (event) {
 });
 
 
-// $(document).on("click", ".tunes", displayItunesInfo);
 
 $("#artistSearch").on("click", function (event) {
   event.preventDefault();
@@ -156,44 +125,10 @@ $("#artistSearch").on("click", function (event) {
 
     $(artistImg).appendTo("#artist-image");
 
-    // var artistBio = $("<div>");
-
-    // artistBio.attr("src", itunesResults);
-
-
-
-    //$(artistImg).appendTo("#wikipedia");
-  });
+   });
 
 
 });
 
-
-
-//  $("#artistSearch").on("click", function(event){
-//   event.preventDefault();
-
-//   var artist = $("#artist").val().trim();
-//   var wikipedia
- 
-//   var wikipediaURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=" + artist + "&key=" + youTubeAPIkey;
-
-// var wikiData;
-// $.ajax( {
-// url: "https://en.wikipedia.org/w/api.php?action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=json&formatversion=2",
-// // data: queryData,
-// dataType: 'jsonp',
-// type: 'POST',
-// headers: { 'Api-User-Agent': 'Example/1.0' },
-// // success: function(data) {
-// //    // do something with data
-// // }
-// }).then(function(response) {
-//   var wikiData = response;
-//   console.log(response);
-
-// });
-
-// });
 
 
