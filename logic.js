@@ -139,7 +139,7 @@ $("#artistSearch").on("click", function (event) {
     //console.log(itunesObject);
 
     var itunesResults = itunesObject.results
-    // console.log(itunesResults);
+    console.log(itunesResults);
     //$("#").empty(); {put div for itunes here to clear with every search}
     $("#artist-image").empty();
     for (var i = 0; i < itunesResults.length; i++) {
@@ -148,14 +148,20 @@ $("#artistSearch").on("click", function (event) {
       // console.log(itunesResults[i].artistViewUrl);
       // console.log(itunesResults[i].trackViewUrl);
       // console.log(itunesResults[i].artworkUrl100);
-
-      
+     
     }
     var artistImg = $("<img>");
-
+    
     artistImg.attr("src", itunesResults[0].artworkUrl100);
 
     $(artistImg).appendTo("#artist-image");
+
+    // var artistBio = $("<div>");
+
+    // artistBio.attr("src", itunesResults);
+
+
+
     //$(artistImg).appendTo("#wikipedia");
   });
 
@@ -183,8 +189,8 @@ $("#artistSearch").on("click", function (event) {
 // //    // do something with data
 // // }
 // }).then(function(response) {
-//   wikiData = response;
-//   console.log(wikiData);
+//   var wikiData = response;
+//   console.log(response);
 
 // });
 
